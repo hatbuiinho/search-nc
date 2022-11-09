@@ -53,10 +53,10 @@ const SearchInput = () => {
           <Table variant="striped" colorScheme="blue">
             <Thead>
               <Tr>
+                <Th></Th>
                 <Th>Họ và tên</Th>
                 <Th>Pháp danh</Th>
                 <Th>Số điện thoại</Th>
-                <Th>Action</Th>
               </Tr>
             </Thead>
 
@@ -64,18 +64,18 @@ const SearchInput = () => {
               {data.length
                 ? data.map(({ data: res, row, editUrl }) => (
                     <Tr key={row}>
-                      <Td>{res[0]}</Td>
-                      <Td>{res[1]}</Td>
-                      <Td>{res[4]}</Td>
                       <Td>
                         <Button
                           onClick={(e) => {
                             window.open(editUrl);
                           }}
                         >
-                          Edit
+                          Sửa
                         </Button>
                       </Td>
+                      <Td>{res[0]}</Td>
+                      <Td>{res[1]}</Td>
+                      <Td>{res[4]}</Td>
                     </Tr>
                   ))
                 : searchValue &&

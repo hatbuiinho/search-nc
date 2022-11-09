@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const SEARCH_API =
-  'https://script.google.com/macros/s/AKfycbzrsylaiw056Owedmrii--xOGyXGmY8MFp6J2-rwd2XVQSxzoPy_QMOon1ls-8fmw_U/exec';
+  'https://script.google.com/macros/s/AKfycbxePdkUW0tk_qxTB6-r0Do9DQd7jRIyzLtkpznRbpKM2TwZ58Wm4t98fWStrTnCR8-k/exec';
 
 export default function useSearch(searchValue) {
   const [loading, setLoading] = useState();
