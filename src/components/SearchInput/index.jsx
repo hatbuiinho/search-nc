@@ -68,7 +68,7 @@ const SearchInput = () => {
                       <Tr key={row}>
                         <Td>{res[0]}</Td>
                         <Td>{res[1]}</Td>
-                        <Td>{res[3]}</Td>
+                        <Td>{res[4]}</Td>
                         <Td>
                           <Button
                             onClick={(e) => {
