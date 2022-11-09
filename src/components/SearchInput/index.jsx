@@ -23,7 +23,6 @@ const SearchInput = () => {
   const [searchValue, setSearchValue] = useState('');
 
   const { data, loading, error } = useSearch(searchValue);
-  console.log(data);
 
   return (
     <Container maxW="5xl" mt={5}>
@@ -57,34 +56,36 @@ const SearchInput = () => {
                 <Th>Họ và tên</Th>
                 <Th>Pháp danh</Th>
                 <Th>Số điện thoại</Th>
-                <Th>Edit</Th>
+                <Th>Action</Th>
               </Tr>
             </Thead>
 
             <Tbody>
-              {!!data.length &&
-                (data.length
-                  ? data.map(({ data: res, row, editUrl }) => (
-                      <Tr key={row}>
-                        <Td>{res[0]}</Td>
-                        <Td>{res[1]}</Td>
-                        <Td>{res[4]}</Td>
-                        <Td>
-                          <Button
-                            onClick={(e) => {
-                              window.open(editUrl);
-                            }}
-                          >
-                            Edit
-                          </Button>
-                        </Td>
-                      </Tr>
-                    ))
-                  : searchValue && (
-                      <Tr>
-                        <Td colSpan={3}>Không tìm thấy kết quả</Td>
-                      </Tr>
-                    ))}
+              {data.length
+                ? data.map(({ data: res, row, editUrl }) => (
+                    <Tr key={row}>
+                      <Td>{res[0]}</Td>
+                      <Td>{res[1]}</Td>
+                      <Td>{res[4]}</Td>
+                      <Td>
+                        <Button
+                          onClick={(e) => {
+                            window.open(editUrl);
+                          }}
+                        >
+                          Edit
+                        </Button>
+                      </Td>
+                    </Tr>
+                  ))
+                : searchValue &&
+                  !loading && (
+                    <Tr>
+                      <Td textAlign="center" colSpan={4}>
+                        Không tìm thấy kết quả
+                      </Td>
+                    </Tr>
+                  )}
             </Tbody>
           </Table>
         </TableContainer>
