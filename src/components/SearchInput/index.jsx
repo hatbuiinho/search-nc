@@ -17,18 +17,21 @@ import {
   Tr,
 } from '@chakra-ui/react';
 import { useState } from 'react';
+import API from '../../constants/API';
 import useSearch from '../../hooks/useSearch';
 
-const SearchInput = () => {
-  const [searchValue, setSearchValue] = useState('');
-
-  const { data, loading, error } = useSearch(searchValue);
-
+const SearchInput = ({
+  placeholder,
+  children,
+  searchValue,
+  setSearchValue,
+  loading,
+}) => {
   return (
     <Container maxW="5xl" mt={5}>
       <InputGroup size="md">
         <Input
-          placeholder="Nhập tên, số điện thoại hoặc CCCD/CMT"
+          placeholder={placeholder}
           colorScheme={'red'}
           pr="2.5rem"
           type="text"
@@ -49,46 +52,7 @@ const SearchInput = () => {
       </InputGroup>
 
       <Box mt={5} p={5} borderRadius="5px" borderWidth="1px">
-        <TableContainer>
-          <Table variant="striped" colorScheme="blue">
-            <Thead>
-              <Tr>
-                <Th></Th>
-                <Th>Họ và tên</Th>
-                <Th>Pháp danh</Th>
-                <Th>Số điện thoại</Th>
-              </Tr>
-            </Thead>
-
-            <Tbody>
-              {data.length
-                ? data.map(({ data: res, row, editUrl }) => (
-                    <Tr key={row}>
-                      <Td>
-                        <Button
-                          onClick={(e) => {
-                            window.open(editUrl);
-                          }}
-                        >
-                          Sửa
-                        </Button>
-                      </Td>
-                      <Td>{res[0]}</Td>
-                      <Td>{res[1]}</Td>
-                      <Td>{res[4]}</Td>
-                    </Tr>
-                  ))
-                : searchValue &&
-                  !loading && (
-                    <Tr>
-                      <Td textAlign="center" colSpan={4}>
-                        Không tìm thấy kết quả
-                      </Td>
-                    </Tr>
-                  )}
-            </Tbody>
-          </Table>
-        </TableContainer>
+        {children}
       </Box>
     </Container>
   );

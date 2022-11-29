@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const SEARCH_API =
-  'https://script.google.com/macros/s/AKfycbxePdkUW0tk_qxTB6-r0Do9DQd7jRIyzLtkpznRbpKM2TwZ58Wm4t98fWStrTnCR8-k/exec';
-
-export default function useSearch(searchValue) {
+export default function useSearch(api, method, searchValue) {
   const [loading, setLoading] = useState();
   const [error, setError] = useState(false);
   const [data, setData] = useState([]);
@@ -20,8 +17,8 @@ export default function useSearch(searchValue) {
       setLoading(true);
 
       axios({
-        method: 'post',
-        url: SEARCH_API,
+        method,
+        url: api,
         params: { searchValue },
         cancelToken: new axios.CancelToken((c) => (cancel = c)),
       })
