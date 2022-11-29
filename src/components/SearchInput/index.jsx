@@ -51,7 +51,14 @@ const SearchInput = ({
         </InputRightElement>
       </InputGroup>
 
-      <Box mt={5} p={5} borderRadius="5px" borderWidth="1px">
+      <Box
+        mt={5}
+        p={5}
+        borderRadius="5px"
+        borderWidth="1px"
+        maxH="50vh"
+        overflow="scroll"
+      >
         {children}
       </Box>
     </Container>

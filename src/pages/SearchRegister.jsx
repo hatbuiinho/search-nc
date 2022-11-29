@@ -16,8 +16,10 @@ import {
   Tr,
   useColorModeValue,
   useDisclosure,
+  VStack,
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
+import Footer from '../components/Footer';
 import Logo from '../components/Logo';
 import SearchInput from '../components/SearchInput';
 import API from '../constants/API';
@@ -34,7 +36,7 @@ const SearchRegister = () => {
   );
   return (
     <>
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4} maxH="100vh">
+      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             size={'md'}
@@ -75,7 +77,7 @@ const SearchRegister = () => {
         ) : null}
       </Box>
 
-      <Box p={4}>
+      <Box p={4} as={VStack} justifyContent="space-between" minH="90vh">
         <Text
           bgGradient="linear(to-l, blue.400, blue.400)"
           bgClip="text"
@@ -92,7 +94,7 @@ const SearchRegister = () => {
           loading={loading}
           placeholder="Nhập tên, số điện thoại hoặc CCCD/CMT"
         >
-          <TableContainer>
+          <TableContainer minH="100vh">
             <Table variant="striped" colorScheme="blue">
               <Thead>
                 <Tr>
@@ -116,9 +118,30 @@ const SearchRegister = () => {
                             Sửa
                           </Button>
                         </Td>
-                        <Td>{res[0]}</Td>
-                        <Td>{res[1]}</Td>
-                        <Td>{res[4]}</Td>
+                        <Td
+                          maxW={30}
+                          textOverflow="ellipsis"
+                          overflow="hidden"
+                          title={res[0]}
+                        >
+                          {res[0]}
+                        </Td>
+                        <Td
+                          maxW={30}
+                          textOverflow="ellipsis"
+                          overflow="hidden"
+                          title={res[1]}
+                        >
+                          {res[1]}
+                        </Td>
+                        <Td
+                          maxW={30}
+                          textOverflow="ellipsis"
+                          overflow="hidden"
+                          title={res[4]}
+                        >
+                          {res[4]}
+                        </Td>
                       </Tr>
                     ))
                   : searchValue &&
@@ -133,6 +156,7 @@ const SearchRegister = () => {
             </Table>
           </TableContainer>
         </SearchInput>
+        <Footer />
       </Box>
     </>
   );
