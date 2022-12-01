@@ -1,6 +1,7 @@
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import {
   Box,
+  Container,
   Flex,
   HStack,
   IconButton,
@@ -34,8 +35,8 @@ const SearchDepartmentAssignment = () => {
     searchValue
   );
   return (
-    <>
-      <Box p={4} justifyContent="space-between" minH="82vh">
+    <Container maxW={"5xl"}>
+      <Box justifyContent="space-between" minH="82vh">
         <Text
           bgGradient="linear(to-l, blue.400, blue.400)"
           bgClip="text"
@@ -114,7 +115,7 @@ const SearchDepartmentAssignment = () => {
           </TableContainer>
         </SearchInput>
       </Box>
-    </>
+    </Container>
   );
 };
 

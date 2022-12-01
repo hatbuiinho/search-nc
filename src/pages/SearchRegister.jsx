@@ -1,6 +1,8 @@
 import {
   Box,
   Button,
+  Container,
+  Link,
   Table,
   TableContainer,
   Tbody,
@@ -28,8 +30,8 @@ const SearchRegister = () => {
     searchValue
   );
   return (
-    <>
-      <Box p={4} justifyContent="space-between" minH="82vh">
+    <Container maxW="5xl">
+      <Box justifyContent="space-between" minH="82vh">
         <Text
           bgGradient="linear(to-l, blue.400, blue.400)"
           bgClip="text"
@@ -109,7 +111,7 @@ const SearchRegister = () => {
           </TableContainer>
         </SearchInput>
       </Box>
-    </>
+    </Container>
   );
 };
 

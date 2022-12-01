@@ -10,18 +10,20 @@ import {
   VStack,
   Tr,
   Td,
+  Link,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import Footer from "~/components/Footer";
 import SearchInput from "~/components/SearchInput";
 import API from "~/constants/API";
 import useSearch from "~/hooks/useSearch";
+import "./sticky.css";
 
 const MoralClass = () => {
   const [searchValue, setSearchValue] = useState("");
   const { data, loading, error } = useSearch(API.MORAL_API, "get", searchValue);
   return (
-    <Box p={4} justifyContent="space-between" minH="82vh">
+    <Box justifyContent="space-between" minH="82vh">
       <Text
         bgGradient="linear(to-l, blue.400, blue.400)"
         bgClip="text"
@@ -101,8 +103,21 @@ const MoralClass = () => {
                 : searchValue &&
                   !loading && (
                     <Tr>
-                      <Td textAlign="center" colSpan={4}>
-                        Không tìm thấy kết quả
+                      <Td textAlign="center" colSpan={5}>
+                        <Text>
+                          Không tìm thấy thông tin đăng ký cũ, mời cô bác, huynh
+                          đệ đăng ký mới{" "}
+                        </Text>
+                        <Button
+                          mt={3}
+                          onClick={() => {
+                            window.open(
+                              "https://docs.google.com/forms/d/e/1FAIpQLSeqB-Vm4X5TrSp0YAzM9Dw7ITqZf8_zCsmEePVImipOxZU6iw/viewform?usp=sf_link"
+                            );
+                          }}
+                        >
+                          tại đây
+                        </Button>
                       </Td>
                     </Tr>
                   )}

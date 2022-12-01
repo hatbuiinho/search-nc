@@ -1,9 +1,19 @@
-import { Box, chakra, HStack, Link, Stack, Text, useColorModeValue, VisuallyHidden } from '@chakra-ui/react';
-import { FaPhone } from 'react-icons/fa';
+import {
+  Box,
+  chakra,
+  Container,
+  HStack,
+  Link,
+  Stack,
+  Text,
+  useColorModeValue,
+  VisuallyHidden,
+} from "@chakra-ui/react";
+import { FaPhone } from "react-icons/fa";
 
 const ListHeader = ({ children }) => {
   return (
-    <Text fontWeight={'500'} fontSize={'lg'} mb={2}>
+    <Text fontWeight={"500"} fontSize={"lg"} mb={2}>
       {children}
     </Text>
   );
@@ -11,18 +21,18 @@ const ListHeader = ({ children }) => {
 const SocialButton = ({ children, label, href }) => {
   return (
     <chakra.button
-      bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
-      rounded={'full'}
+      bg={useColorModeValue("blackAlpha.100", "whiteAlpha.100")}
+      rounded={"full"}
       w={8}
       h={8}
-      cursor={'pointer'}
-      as={'a'}
-      display={'inline-flex'}
-      alignItems={'center'}
-      justifyContent={'center'}
-      transition={'background 0.3s ease'}
+      cursor={"pointer"}
+      as={"a"}
+      display={"inline-flex"}
+      alignItems={"center"}
+      justifyContent={"center"}
+      transition={"background 0.3s ease"}
       _hover={{
-        bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
+        bg: useColorModeValue("blackAlpha.200", "whiteAlpha.200"),
       }}
     >
       <VisuallyHidden>{label}</VisuallyHidden>
@@ -33,42 +43,44 @@ const SocialButton = ({ children, label, href }) => {
 
 export default function Footer() {
   return (
-    <Box
-      bg={useColorModeValue('gray.100', 'gray.900')}
-      color={useColorModeValue('gray.700', 'gray.200')}
-      rounded="md"
-    >
-      <Box
-        as={Stack}
-        maxW={'6xl'}
-        p={4}
-        direction={{ base: 'column', md: 'row' }}
-        spacing={10}
-        justify={{ base: 'center' }}
-        align={{ base: 'center', md: 'center' }}
+    <Box color={useColorModeValue("gray.700", "gray.200")}>
+      <Container
+        bg={useColorModeValue("gray.100", "gray.900")}
+        rounded="md"
+        maxW={"5xl"}
       >
-        {/* <HStack>
+        <Box
+          as={Stack}
+          maxW={"6xl"}
+          p={4}
+          direction={{ base: "column", md: "row" }}
+          spacing={10}
+          justify={{ base: "center" }}
+          align={{ base: "center", md: "center" }}
+        >
+          {/* <HStack>
           <Logo />
           <Text>Thiền Tôn Phật Quang</Text>
         </HStack> */}
-        <ListHeader>Liên hệ thư ký</ListHeader>
-        <Link href="tel:0332466144">
-          <HStack>
-            <SocialButton label={'Thể Bình Ngộ'}>
-              <FaPhone />
-            </SocialButton>
-            <Text>Thể Bình Ngộ (0332466144)</Text>
-          </HStack>
-        </Link>
-        <Link href="tel:0332466144">
-          <HStack>
-            <SocialButton label={'Tâm Nghĩa Tín'}>
-              <FaPhone />
-            </SocialButton>
-            <Text>Tâm Nghĩa Tín (0967529095)</Text>
-          </HStack>
-        </Link>
-      </Box>
+          <ListHeader>Liên hệ thư ký</ListHeader>
+          <Link href="tel:0332466144">
+            <HStack>
+              <SocialButton label={"Thể Bình Ngộ"}>
+                <FaPhone />
+              </SocialButton>
+              <Text>Thể Bình Ngộ (0332466144)</Text>
+            </HStack>
+          </Link>
+          <Link href="tel:0332466144">
+            <HStack>
+              <SocialButton label={"Tâm Nghĩa Tín"}>
+                <FaPhone />
+              </SocialButton>
+              <Text>Tâm Nghĩa Tín (0967529095)</Text>
+            </HStack>
+          </Link>
+        </Box>
+      </Container>
     </Box>
   );
 }

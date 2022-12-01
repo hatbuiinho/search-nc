@@ -13,13 +13,7 @@ import Logo from "../Logo";
 const Header = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
   return (
-    <Box
-      bg={useColorModeValue("gray.100", "gray.900")}
-      px={4}
-      pos="sticky"
-      top={0}
-      w="full"
-    >
+    <Box bg={useColorModeValue("gray.100", "gray.900")} px={4} w="full">
       <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
         <IconButton
           size={"md"}
