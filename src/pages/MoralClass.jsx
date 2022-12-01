@@ -1,23 +1,8 @@
-import {
-  Box,
-  Button,
-  Table,
-  TableContainer,
-  Tbody,
-  Text,
-  Th,
-  Thead,
-  VStack,
-  Tr,
-  Td,
-  Link,
-} from "@chakra-ui/react";
-import React, { useState } from "react";
-import Footer from "~/components/Footer";
+import { Box, Button, Table, TableContainer, Tbody, Text, Th, Thead, Tr, Td } from "@chakra-ui/react";
+import { useState } from "react";
 import SearchInput from "~/components/SearchInput";
 import API from "~/constants/API";
 import useSearch from "~/hooks/useSearch";
-import "./sticky.css";
 
 const MoralClass = () => {
   const [searchValue, setSearchValue] = useState("");
