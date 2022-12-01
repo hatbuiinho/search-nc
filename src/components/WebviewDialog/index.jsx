@@ -1,6 +1,7 @@
 import { Box, Spinner } from "@chakra-ui/react";
 import { Dialog } from "primereact/dialog";
 import { useState } from "react";
+import "./index.css";
 
 const WebViewDialog = ({ src, label, visible, onHide }) => {
   const [loading, setLoading] = useState(true);
@@ -11,8 +12,8 @@ const WebViewDialog = ({ src, label, visible, onHide }) => {
       header={label}
       onHide={onHide}
       visible={visible}
-      style={{ width: "80vw", height: "80vh" }}
-      onMaskClick={onHide}
+      style={{ width: "90vw", height: "90vh" }}
+      className="web-view-dialog"
     >
       {loading && (
         <Box width="full" height="full" pos="relative">
