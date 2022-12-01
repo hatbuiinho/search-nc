@@ -1,8 +1,10 @@
 import { Link, useDisclosure, useColorModeValue } from "@chakra-ui/react";
-import { Route, Switch } from "react-router-dom";
-import SearchDepartmentAssignment from "./pages/SearchDepartmentAssignment";
-import SearchRegister from "./pages/SearchRegister";
+import { Switch } from "react-router-dom";
 import { AppRoute, ROUTES } from "./router";
+
+import "primereact/resources/themes/lara-light-blue/theme.css"; //theme
+import "primereact/resources/primereact.min.css"; //core css
+import "primeicons/primeicons.css"; //icons
 
 const Links = [];
 
