@@ -18,7 +18,7 @@ import {
   useDisclosure,
   VStack,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Logo from "../components/Logo";
 import SearchInput from "../components/SearchInput";
 import API from "../constants/API";
@@ -34,6 +34,9 @@ const SearchDepartmentAssignment = () => {
     "get",
     searchValue
   );
+  useEffect(() => {
+    document.title = 'Thông tin ban Đại lễ';
+  }, []);
   return (
     <Container maxW={"5xl"}>
       <Box justifyContent="space-between" minH="82vh">

@@ -1,5 +1,5 @@
 import { Box, Button, Table, TableContainer, Tbody, Text, Th, Thead, Tr, Td } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SearchInput from "~/components/SearchInput";
 import API from "~/constants/API";
 import useSearch from "~/hooks/useSearch";
@@ -7,6 +7,9 @@ import useSearch from "~/hooks/useSearch";
 const MoralClass = () => {
   const [searchValue, setSearchValue] = useState("");
   const { data, loading, error } = useSearch(API.MORAL_API, "get", searchValue);
+  useEffect(() => {
+    document.title = 'Lớp học đạo đức';
+  }, []);
   return (
     <Box justifyContent="space-between" minH="82vh">
       <Text
