@@ -1,4 +1,4 @@
-import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
+import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import {
   Box,
   Flex,
@@ -16,71 +16,30 @@ import {
   useColorModeValue,
   useDisclosure,
   VStack,
-} from '@chakra-ui/react';
-import { useState } from 'react';
-import Logo from '../components/Logo';
-import SearchInput from '../components/SearchInput';
-import API from '../constants/API';
-import useSearch from '../hooks/useSearch';
-import Footer from '../components/Footer';
+} from "@chakra-ui/react";
+import { useState } from "react";
+import Logo from "../components/Logo";
+import SearchInput from "../components/SearchInput";
+import API from "../constants/API";
+import useSearch from "../hooks/useSearch";
+import Footer from "../components/Footer";
 
 const SearchDepartmentAssignment = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState("");
 
   const { data, loading, error } = useSearch(
     API.SEARCH_DEPARTMENT_ASSIGNMENT,
-    'get',
+    "get",
     searchValue
   );
   return (
     <>
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
-        <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <IconButton
-            size={'md'}
-            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-            aria-label={'Open Menu'}
-            display={{ md: 'none' }}
-            onClick={isOpen ? onClose : onOpen}
-          />
-          <HStack spacing={8} alignItems={'center'}>
-            <Logo />
-            <HStack
-              as={'nav'}
-              spacing={4}
-              display={{ base: 'none', md: 'flex' }}
-            >
-              <Text
-                // color="blue.500"
-                textTransform="uppercase"
-                fontSize="xl"
-                fontWeight="extrabold"
-                bgGradient="linear(to-r, blue.400, blue.500)"
-                bgClip="text"
-              >
-                Chúng thanh niên Phật tử Phật Quang Miền Bắc
-              </Text>
-            </HStack>
-          </HStack>
-        </Flex>
-
-        {isOpen ? (
-          <Box pb={4} display={{ md: 'none' }}>
-            <Stack as={'nav'} spacing={4}>
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
-            </Stack>
-          </Box>
-        ) : null}
-      </Box>
-
-      <Box p={4} as={VStack} justifyContent="space-between" minH="90vh">
+      <Box p={4} justifyContent="space-between" minH="82vh">
         <Text
           bgGradient="linear(to-l, blue.400, blue.400)"
           bgClip="text"
-          fontSize={['2xl', '3xl', '4xl', '5xl']}
+          fontSize={["2xl", "3xl", "4xl", "5xl"]}
           fontWeight="extrabold"
           textAlign="center"
         >
@@ -154,7 +113,6 @@ const SearchDepartmentAssignment = () => {
             </Table>
           </TableContainer>
         </SearchInput>
-        <Footer />
       </Box>
     </>
   );

@@ -1,17 +1,5 @@
-import {
-  Box,
-  chakra,
-  Container,
-  HStack,
-  Link,
-  Stack,
-  Text,
-  useColorModeValue,
-  VisuallyHidden,
-  VStack,
-} from '@chakra-ui/react';
+import { Box, chakra, HStack, Link, Stack, Text, useColorModeValue, VisuallyHidden } from '@chakra-ui/react';
 import { FaPhone } from 'react-icons/fa';
-import Logo from '../Logo';
 
 const ListHeader = ({ children }) => {
   return (
