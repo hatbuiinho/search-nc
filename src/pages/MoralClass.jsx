@@ -76,7 +76,7 @@ const MoralClass = () => {
                 {data.length
                   ? data.map(({ data: student }) => (
                       <Tr key={nanoid()}>
-                        <Td maxW={20}>
+                        <Td>
                           <Button
                             onClick={(e) => {
                               const submitUrl = generateSubmitUrl(...student);
