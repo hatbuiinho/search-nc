@@ -6,15 +6,15 @@ import {
   IconButton,
   useColorModeValue,
   useDisclosure,
-  Link as ChakraLink,
   Stack,
+  Link as ChakraLink,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { ROUTES } from "~/router";
 import Logo from "../Logo";
 const NavLink = ({ children, to }) => (
-  <RouterLink
-    as={RouterLink}
+  <ChakraLink
+    as={Link}
     px={2}
     py={1}
     rounded={"md"}
@@ -25,7 +25,7 @@ const NavLink = ({ children, to }) => (
     to={to}
   >
     {children}
-  </RouterLink>
+  </ChakraLink>
 );
 
 const Header = () => {
@@ -46,9 +46,9 @@ const Header = () => {
           <Logo />
           <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
             {pages.map(({ key, title, path }) => (
-              <Link key={key} to={path}>
+              <NavLink key={key} to={path}>
                 {title}
-              </Link>
+              </NavLink>
             ))}
           </HStack>
         </HStack>

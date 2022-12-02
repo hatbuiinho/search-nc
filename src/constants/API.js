@@ -1,5 +1,5 @@
 const SEARCH_REGISTER =
-  "https://script.google.com/macros/s/AKfycbxePdkUW0tk_qxTB6-r0Do9DQd7jRIyzLtkpznRbpKM2TwZ58Wm4t98fWStrTnCR8-k/exec";
+  "https://script.google.com/macros/s/AKfycbwvr-TtYrKRu0ojlwRW3tsyh0W-9DEDQbRdKmRB0DM6uy1FdeqDF2T0gskvCo2oaVJo/exec";
 const SEARCH_DEPARTMENT_ASSIGNMENT =
   "https://script.google.com/macros/s/AKfycbzJGqa2CM45bDcsyGik3a5udu8U64-iEC0KbTkhNBjqFYje7dP0WR0vfJw8vBhLckmH/exec";
 const MORAL_API =

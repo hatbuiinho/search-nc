@@ -1,4 +1,3 @@
-
 import MainLayout from "~/components/containers/layouts/MainLayout";
 import NotFound from "~/components/NotFound";
 import MoralClass from "~/pages/MoralClass";
@@ -13,15 +12,15 @@ const ROUTES = [
     exact: true,
     component: SearchRegister,
     layout: MainLayout,
-    title: 'Đăng ký Đại lễ'
+    title: "Đăng ký Đại lễ",
   },
   {
     key: "assignDepartment",
     path: "/department-assignment",
     exact: true,
-    component: SearchDepartmentAssignment,
+    component: SearchRegister,
     layout: MainLayout,
-    title: 'Thông tin phân ban'
+    // title: 'Thông tin phân ban'
   },
   {
     key: "moralClass",
@@ -29,7 +28,7 @@ const ROUTES = [
     exact: true,
     component: MoralClass,
     layout: MainLayout,
-    title: 'Lớp học Đạo Đức'
+    title: "Lớp học Đạo Đức",
   },
   {
     key: "NOT_FOUND",
