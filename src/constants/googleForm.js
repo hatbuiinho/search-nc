@@ -33,13 +33,15 @@ const districts = [
   " Mỹ Đức",
 ];
 const formId = "1FAIpQLSeqB-Vm4X5TrSp0YAzM9Dw7ITqZf8_zCsmEePVImipOxZU6iw";
-const createNewMoralRegisterUrl =
+const NEW_MORAL_REGISTER_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSeqB-Vm4X5TrSp0YAzM9Dw7ITqZf8_zCsmEePVImipOxZU6iw/viewform?usp=sf_link";
-
+const GREAT_CEREMONY_REGISTER_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSezgzgVQWq7ngMcTz_6CnpRurjYqdF12v3yrb4HXxh8EYTO8A/viewform?usp=sf_link";
 export {
   suggestionSources,
   joinedSummerCourseOptions,
   districts,
   formId,
-  createNewMoralRegisterUrl,
+  NEW_MORAL_REGISTER_URL,
+  GREAT_CEREMONY_REGISTER_URL,
 };

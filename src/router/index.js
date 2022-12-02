@@ -13,6 +13,7 @@ const ROUTES = [
     exact: true,
     component: SearchRegister,
     layout: MainLayout,
+    title: 'Đăng ký Đại lễ'
   },
   {
     key: "assignDepartment",
@@ -20,6 +21,7 @@ const ROUTES = [
     exact: true,
     component: SearchDepartmentAssignment,
     layout: MainLayout,
+    title: 'Thông tin phân ban'
   },
   {
     key: "moralClass",
@@ -27,6 +29,7 @@ const ROUTES = [
     exact: true,
     component: MoralClass,
     layout: MainLayout,
+    title: 'Lớp học Đạo Đức'
   },
   {
     key: "NOT_FOUND",

@@ -30,7 +30,7 @@ const SearchInput = ({
   tooltip,
 }) => {
   return (
-    <Container maxW="5xl" mt={5}>
+    <Box mt={5}>
       <InputGroup size="md">
         <Input
           placeholder={placeholder}
@@ -63,7 +63,7 @@ const SearchInput = ({
       >
         {children}
       </Box>
-    </Container>
+    </Box>
   );
 };
 

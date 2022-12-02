@@ -9,13 +9,10 @@ import {
   Thead,
   Tr,
   Td,
-  Container,
   Tag,
-  HStack,
   TagLabel,
   TagLeftIcon,
   Stack,
-  Flex,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import SearchInput from "~/components/SearchInput";
@@ -26,9 +23,10 @@ import { nanoid } from "nanoid";
 import { confirmPopup } from "primereact/confirmpopup";
 import { ConfirmPopup } from "primereact/confirmpopup";
 import WebViewDialog from "~/components/WebviewDialog";
-import { createNewMoralRegisterUrl } from "~/constants/googleForm";
-import { ArrowLeftIcon, ChevronLeftIcon, InfoIcon } from "@chakra-ui/icons";
+import { NEW_MORAL_REGISTER_URL } from "~/constants/googleForm";
+import { InfoIcon } from "@chakra-ui/icons";
 import { FaPlus } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 
 const MoralClass = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -36,6 +34,7 @@ const MoralClass = () => {
   const [openWebView, setOpenWebView] = useState(false);
   const [webViewSrc, setWebViewSrc] = useState("");
   const [webViewLabel, setWebViewLabel] = useState("");
+  const history = useHistory();
   useEffect(() => {
     document.title = "Lớp học đạo đức";
   }, []);
@@ -51,13 +50,13 @@ const MoralClass = () => {
         >
           Đăng ký lớp học đạo đức
         </Text>
-        <Container maxW="5xl" mt={5}>
+        <Box mt={5}>
           <Stack direction={{ base: "column", lg: "row" }}>
             <Button
               leftIcon={<FaPlus />}
               onClick={() => {
                 setOpenWebView(true);
-                setWebViewSrc(createNewMoralRegisterUrl);
+                setWebViewSrc(NEW_MORAL_REGISTER_URL);
                 setWebViewLabel("Đăng ký mới");
               }}
             >
@@ -74,7 +73,7 @@ const MoralClass = () => {
               </TagLabel>
             </Tag>
           </Stack>
-        </Container>
+        </Box>
         <SearchInput
           searchValue={searchValue}
           setSearchValue={setSearchValue}
@@ -171,8 +170,7 @@ const MoralClass = () => {
         <ConfirmPopup />
       </Box>
       <WebViewDialog
-        label="Đăng ký mới"
-        icon="pi pi-plus"
+        label={webViewLabel}
         src={webViewSrc}
         visible={openWebView}
         onHide={() => setOpenWebView(false)}

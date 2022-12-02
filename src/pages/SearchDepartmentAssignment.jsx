@@ -35,7 +35,7 @@ const SearchDepartmentAssignment = () => {
     searchValue
   );
   useEffect(() => {
-    document.title = 'Thông tin ban Đại lễ';
+    document.title = "Thông tin ban Đại lễ";
   }, []);
   return (
     <Container maxW={"5xl"}>
@@ -60,10 +60,10 @@ const SearchDepartmentAssignment = () => {
             <Table variant="striped" colorScheme="blue">
               <Thead>
                 <Tr>
+                  <Th>Ban</Th>
                   <Th>Họ và tên</Th>
                   <Th>Pháp danh</Th>
                   <Th>Số điện thoại</Th>
-                  <Th>Ban</Th>
                 </Tr>
               </Thead>
 
@@ -71,38 +71,10 @@ const SearchDepartmentAssignment = () => {
                 {data.length
                   ? data.map(({ data: res, row, editUrl }) => (
                       <Tr key={row}>
-                        <Td
-                          maxW={30}
-                          textOverflow="ellipsis"
-                          overflow="hidden"
-                          title={res[0]}
-                        >
-                          {res[0]}
-                        </Td>
-                        <Td
-                          maxW={30}
-                          textOverflow="ellipsis"
-                          overflow="hidden"
-                          title={res[1]}
-                        >
-                          {res[1]}
-                        </Td>
-                        <Td
-                          maxW={30}
-                          textOverflow="ellipsis"
-                          overflow="hidden"
-                          title={res[4]}
-                        >
-                          {res[4]}
-                        </Td>
-                        <Td
-                          maxW={30}
-                          textOverflow="ellipsis"
-                          overflow="hidden"
-                          title={res[29]}
-                        >
-                          {res[29]}
-                        </Td>
+                        <Td title={res[29]}>{res[29]}</Td>
+                        <Td title={res[0]}>{res[0]}</Td>
+                        <Td title={res[1]}>{res[1]}</Td>
+                        <Td title={res[4]}>{res[4]}</Td>
                       </Tr>
                     ))
                   : searchValue &&

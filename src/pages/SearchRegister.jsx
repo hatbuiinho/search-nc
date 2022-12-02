@@ -1,8 +1,6 @@
 import {
   Box,
   Button,
-  Container,
-  Link,
   Table,
   TableContainer,
   Tbody,
@@ -11,18 +9,23 @@ import {
   Th,
   Thead,
   Tr,
-  useDisclosure,
-  VStack,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import Footer from "../components/Footer";
+import { FaPlus } from "react-icons/fa";
+import WebViewDialog from "~/components/WebviewDialog";
+import {
+  GREAT_CEREMONY_REGISTER_URL,
+  NEW_MORAL_REGISTER_URL,
+} from "~/constants/googleForm";
 import SearchInput from "../components/SearchInput";
 import API from "../constants/API";
 import useSearch from "../hooks/useSearch";
 
 const SearchRegister = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
   const [searchValue, setSearchValue] = useState("");
+  const [openWebView, setOpenWebView] = useState(false);
+  const [webViewSrc, setWebViewSrc] = useState("");
+  const [webViewLabel, setWebViewLabel] = useState("");
 
   const { data, loading, error } = useSearch(
     API.SEARCH_REGISTER,
@@ -33,7 +36,7 @@ const SearchRegister = () => {
     document.title = "Thông tin đăng ký Đại lễ";
   }, []);
   return (
-    <Container maxW="5xl">
+    <Box>
       <Box justifyContent="space-between" minH="82vh">
         <Text
           bgGradient="linear(to-l, blue.400, blue.400)"
@@ -44,7 +47,18 @@ const SearchRegister = () => {
         >
           Tìm thông tin đăng ký Đại lễ
         </Text>
-
+        <Box mt={5}>
+          <Button
+            leftIcon={<FaPlus />}
+            onClick={() => {
+              setOpenWebView(true);
+              setWebViewSrc(GREAT_CEREMONY_REGISTER_URL);
+              setWebViewLabel("Đăng ký mới");
+            }}
+          >
+            Đăng ký mới
+          </Button>
+        </Box>
         <SearchInput
           searchValue={searchValue}
           setSearchValue={setSearchValue}
@@ -75,30 +89,9 @@ const SearchRegister = () => {
                             Sửa
                           </Button>
                         </Td>
-                        <Td
-                          maxW={30}
-                          textOverflow="ellipsis"
-                          overflow="hidden"
-                          title={res[0]}
-                        >
-                          {res[0]}
-                        </Td>
-                        <Td
-                          maxW={30}
-                          textOverflow="ellipsis"
-                          overflow="hidden"
-                          title={res[1]}
-                        >
-                          {res[1]}
-                        </Td>
-                        <Td
-                          maxW={30}
-                          textOverflow="ellipsis"
-                          overflow="hidden"
-                          title={res[4]}
-                        >
-                          {res[4]}
-                        </Td>
+                        <Td title={res[0]}>{res[0]}</Td>
+                        <Td title={res[1]}>{res[1]}</Td>
+                        <Td title={res[4]}>{res[4]}</Td>
                       </Tr>
                     ))
                   : searchValue &&
@@ -114,7 +107,13 @@ const SearchRegister = () => {
           </TableContainer>
         </SearchInput>
       </Box>
-    </Container>
+      <WebViewDialog
+        label={webViewLabel}
+        src={webViewSrc}
+        visible={openWebView}
+        onHide={() => setOpenWebView(false)}
+      />
+    </Box>
   );
 };
 

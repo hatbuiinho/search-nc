@@ -3,7 +3,7 @@ import { Dialog } from "primereact/dialog";
 import { useState } from "react";
 import "./index.css";
 
-const WebViewDialog = ({ src, label, visible, onHide }) => {
+const WebViewDialog = ({ src, label, visible, onHide, onError }) => {
   const [loading, setLoading] = useState(true);
   return (
     <Dialog
@@ -28,6 +28,7 @@ const WebViewDialog = ({ src, label, visible, onHide }) => {
         onLoad={() => {
           setLoading(false);
         }}
+        onError={onError}
       ></iframe>
     </Dialog>
   );
