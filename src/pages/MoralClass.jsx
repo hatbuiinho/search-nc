@@ -115,31 +115,10 @@ const MoralClass = () => {
                             Ghi danh
                           </Button>
                         </Td>
-                        <Td
-                          maxW={30}
-                          textOverflow="ellipsis"
-                          overflow="hidden"
-                          title={student[0]}
-                        >
-                          {student[0]}
-                        </Td>
+                        <Td title={student[0]}>{student[0]}</Td>
 
-                        <Td
-                          maxW={30}
-                          textOverflow="ellipsis"
-                          overflow="hidden"
-                          title={student[5]}
-                        >
-                          {student[5]}
-                        </Td>
-                        <Td
-                          maxW={30}
-                          textOverflow="ellipsis"
-                          overflow="hidden"
-                          title={student[4]}
-                        >
-                          {student[4]}
-                        </Td>
+                        <Td title={student[5]}>{student[5]}</Td>
+                        <Td title={student[4]}>{student[4]}</Td>
                       </Tr>
                     ))
                   : searchValue &&
