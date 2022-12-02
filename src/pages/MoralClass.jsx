@@ -9,10 +9,10 @@ import {
   Thead,
   Tr,
   Td,
-  Tag,
-  TagLabel,
-  TagLeftIcon,
   Stack,
+  AlertIcon,
+  Alert,
+  Flex,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import SearchInput from "~/components/SearchInput";
@@ -24,7 +24,6 @@ import { confirmPopup } from "primereact/confirmpopup";
 import { ConfirmPopup } from "primereact/confirmpopup";
 import WebViewDialog from "~/components/WebviewDialog";
 import { NEW_MORAL_REGISTER_URL } from "~/constants/googleForm";
-import { InfoIcon } from "@chakra-ui/icons";
 import { FaPlus } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
 
@@ -62,16 +61,20 @@ const MoralClass = () => {
             >
               Đăng ký mới
             </Button>
-            <Tag colorScheme="green">
-              <TagLeftIcon boxSize="12px" as={InfoIcon} />
-              <TagLabel
-                title="Nếu cô bác, huynh đệ không tìm thấy thông tin có thể đăng ký mới
-                ạ"
+            <Flex>
+              <Alert
+                display="inline-flex"
+                rounded="md"
+                size="sm"
+                fontSize="sm"
+                p={1}
+                status="info"
               >
+                <AlertIcon />
                 Nếu cô bác, huynh đệ không tìm thấy thông tin có thể đăng ký mới
                 ạ
-              </TagLabel>
-            </Tag>
+              </Alert>
+            </Flex>
           </Stack>
         </Box>
         <SearchInput
