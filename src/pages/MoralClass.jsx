@@ -68,7 +68,6 @@ const MoralClass = () => {
                   <Th>Họ và tên</Th>
                   <Th>Số điện thoại</Th>
                   <Th>Phụ huynh</Th>
-                  <Th>Địa chỉ</Th>
                 </Tr>
               </Thead>
 
@@ -82,7 +81,7 @@ const MoralClass = () => {
                               const submitUrl = generateSubmitUrl(...student);
                               confirmPopup({
                                 target: e.currentTarget,
-                                message: "Bạn có chắc chắn ghi danh?",
+                                message: "Bạn có chắc chắn muốn ghi danh?",
                                 icon: "pi pi-exclamation-triangle",
                                 accept: () => {
                                   setOpenWebView(true);
@@ -120,14 +119,6 @@ const MoralClass = () => {
                           title={student[4]}
                         >
                           {student[4]}
-                        </Td>
-                        <Td
-                          maxW={30}
-                          textOverflow="ellipsis"
-                          overflow="hidden"
-                          title={student[8]}
-                        >
-                          {student[8]}
                         </Td>
                       </Tr>
                     ))
