@@ -1,4 +1,4 @@
-import { SearchIcon } from '@chakra-ui/icons';
+import { SearchIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
@@ -14,11 +14,12 @@ import {
   Td,
   Th,
   Thead,
+  Tooltip,
   Tr,
-} from '@chakra-ui/react';
-import { useState } from 'react';
-import API from '../../constants/API';
-import useSearch from '../../hooks/useSearch';
+} from "@chakra-ui/react";
+import { useState } from "react";
+import API from "../../constants/API";
+import useSearch from "../../hooks/useSearch";
 
 const SearchInput = ({
   placeholder,
@@ -26,13 +27,14 @@ const SearchInput = ({
   searchValue,
   setSearchValue,
   loading,
+  tooltip,
 }) => {
   return (
     <Container maxW="5xl" mt={5}>
       <InputGroup size="md">
         <Input
           placeholder={placeholder}
-          colorScheme={'red'}
+          colorScheme={"red"}
           pr="2.5rem"
           type="text"
           value={searchValue}
